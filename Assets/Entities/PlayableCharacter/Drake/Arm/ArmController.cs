@@ -4,37 +4,19 @@ using UnityEngine;
 
 public class ArmController : MonoBehaviour {
     [SerializeField] private GameObject Bullet;
-    private SpriteRenderer m_SpriteRenderer;
+    [SerializeField] private Transform GunTip;
+    [SerializeField] private GameObject Gust;
+    [SerializeField] private Transform BoostTip;
+    private bool canAltFire = true;
+    private CharacterController2D PlayerController;
 
     void Awake() {
-        m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        PlayerController = transform.parent.gameObject.GetComponent<CharacterController2D>();
     }
 
     void Update() {
-        PointToTarget();
-        if(ShouldFire()) {
-            Fire();
-        }
-    }
-
-    private void PointToTarget() {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 armPosition = new Vector2(
-            transform.position.x,
-            transform.position.y
-        );
-        Vector2 armToTarget = armPosition - mousePosition;
-        float angle = Vector2.SignedAngle(Vector2.left, armToTarget);
-
-	    m_SpriteRenderer.flipY = ShouldFlip(angle);
-
-        Quaternion quat = Quaternion.identity;
-        quat.eulerAngles = new Vector3(0, 0, angle);
-        transform.rotation = quat;
-    }
-
-    private bool ShouldFlip(float angle) {
-        return angle > 90 || angle < -90;
+        if(ShouldFire()) Fire();
+        if(ShouldAltFire()) AltFire();
     }
 
     private bool ShouldFire() {
@@ -42,6 +24,21 @@ public class ArmController : MonoBehaviour {
     }
 
     private void Fire() {
-        Object.Instantiate(Bullet, transform.position, transform.rotation);
+        Object.Instantiate(Bullet, GunTip.transform.position, GunTip.transform.rotation);
+    }
+
+    private bool ShouldAltFire() {
+        return Input.GetButtonDown("Fire2");
+    }
+
+    private void AltFire() {
+        Vector2 boostDirection = (GunTip.transform.position - transform.position).normalized;
+        PlayerController.BoostTo(boostDirection, 30, 10);
+        Object.Instantiate(Gust, BoostTip.transform.position, BoostTip.transform.rotation);
+        canAltFire = false;
+    }
+
+    public void RefreshAltFire() {
+        canAltFire = true;
     }
 }

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Platform
+  - PlayerBullet
+  - Bumper
   layers:
   - Default
   - TransparentFX
@@ -41,6 +43,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: FX
+    uniqueID: 1377410845
     locked: 0
   - name: Addons
     uniqueID: 1171534869

@@ -11,7 +11,8 @@ public class CharacterController2D : MonoBehaviour {
     [SerializeField] private Transform m_CeilingCheck;
     [SerializeField] private Collider2D m_CrouchDisableCollider;
 
-
+    private Vector2 boostingDirection;
+    private int boostingTimeLeft = 0;
     const float k_GroundedRadius = .2f;
     private bool m_Grounded;
     const float k_CeilingRadius = .2f;
@@ -20,6 +21,7 @@ public class CharacterController2D : MonoBehaviour {
     private Vector3 m_Velocity = Vector3.zero;
     private Animator m_Animator;
     private SpriteRenderer m_SpriteRenderer;
+    private float initialGravity;
 
     [Header("Events")]
     [Space]
@@ -36,12 +38,15 @@ public class CharacterController2D : MonoBehaviour {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        gameObject.GetComponentInChildren<ArmController>();
 
         if(OnLandEvent == null)
             OnLandEvent = new UnityEvent();
 
         if(OnCrouchEvent == null)
             OnCrouchEvent = new BoolEvent();
+
+        initialGravity = m_Rigidbody2D.gravityScale;
     }
 
     private void FixedUpdate() {
@@ -51,6 +56,10 @@ public class CharacterController2D : MonoBehaviour {
 
     public void Move(float move, bool crouch, bool jump) {
         if(!crouch && HasPlatformOverHead()) crouch = true;
+
+        if(Boosting()) {
+            Boost();
+        }
 
         if(CanMove()) {
             if(m_CrouchDisableCollider != null)
@@ -74,12 +83,12 @@ public class CharacterController2D : MonoBehaviour {
                 m_MovementSmoothing
             );
 
-            if(ShouldFlip()) Flip();
         }
+        if(ShouldFlip()) Flip();
 
         if(ShouldJump(jump)) Jump();
 
-        SetAnimatorParameters(move);
+        SetAnimatorParameters();
     }
 
     private bool ShouldFlip() {
@@ -101,7 +110,8 @@ public class CharacterController2D : MonoBehaviour {
         m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
     }
 
-    private void SetAnimatorParameters(float move) {
+    private void SetAnimatorParameters() {
+        float move = m_Rigidbody2D.velocity.x;
         if(!m_FacingRight) move = -move;
         m_Animator.SetInteger(
             "Direction",
@@ -141,5 +151,27 @@ public class CharacterController2D : MonoBehaviour {
                     OnLandEvent.Invoke();
             }
         }
+    }
+
+    private bool Boosting() {
+        return boostingTimeLeft > 0;
+    }
+
+    private void Boost() {
+        m_Rigidbody2D.velocity = boostingDirection*boostingTimeLeft*0.1f;
+        boostingTimeLeft--;
+        if(boostingTimeLeft<10) m_AirControl = true;
+        if(!Boosting()) StopBoosting();
+    }
+
+    private void StopBoosting() {
+        m_Rigidbody2D.gravityScale = initialGravity;
+    }
+
+    public void BoostTo(Vector2 where, int duration, float magnitude) {
+        m_AirControl = false;
+        boostingDirection = where*magnitude;
+        boostingTimeLeft = duration;
+        m_Rigidbody2D.gravityScale = 0;
     }
 }
