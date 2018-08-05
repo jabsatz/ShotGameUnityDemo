@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using System.Timers;
+using UnityEngine.SceneManagement;
 
 public class CharacterController2D : MonoBehaviour {
     [SerializeField] private float m_JumpForce = 400f;
@@ -22,6 +24,9 @@ public class CharacterController2D : MonoBehaviour {
     private Animator m_Animator;
     private SpriteRenderer m_SpriteRenderer;
     private float initialGravity;
+    private ArmController m_Arm;
+    public static bool isDying = false;
+    private int timeToChangeLevel = 0;
 
     [Header("Events")]
     [Space]
@@ -38,7 +43,7 @@ public class CharacterController2D : MonoBehaviour {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
-        gameObject.GetComponentInChildren<ArmController>();
+        m_Arm = gameObject.GetComponentInChildren<ArmController>();
 
         if(OnLandEvent == null)
             OnLandEvent = new UnityEvent();
@@ -47,6 +52,15 @@ public class CharacterController2D : MonoBehaviour {
             OnCrouchEvent = new BoolEvent();
 
         initialGravity = m_Rigidbody2D.gravityScale;
+    }
+
+    private void Update() {
+        if(isDying) {
+            timeToChangeLevel--;
+            if(timeToChangeLevel <= 0) {
+                RestartLevel();
+            }
+        }
     }
 
     private void FixedUpdate() {
@@ -92,13 +106,14 @@ public class CharacterController2D : MonoBehaviour {
     }
 
     private bool ShouldFlip() {
+        if(isDying) return false;
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         return (mousePosition.x >= transform.position.x && !m_FacingRight) ||
                (mousePosition.x < transform.position.x && m_FacingRight);
     }
 
     private bool CanMove() {
-        return m_Grounded || m_AirControl;
+        return !isDying && (m_Grounded || m_AirControl);
     }
 
     private bool ShouldJump(bool jump) {
@@ -165,6 +180,7 @@ public class CharacterController2D : MonoBehaviour {
     }
 
     private void StopBoosting() {
+        if(m_Grounded && m_Arm) m_Arm.RefreshAltFire();
         m_Rigidbody2D.gravityScale = initialGravity;
     }
 
@@ -173,5 +189,24 @@ public class CharacterController2D : MonoBehaviour {
         boostingDirection = where*magnitude;
         boostingTimeLeft = duration;
         m_Rigidbody2D.gravityScale = 0;
+    }
+
+    private void OnCollisionEnter2D(Collision2D col) {
+        if(col.gameObject.tag == "Hazard") {
+            Die();
+        }
+    }
+
+    private void Die() {
+        isDying = true;
+        m_Animator.SetTrigger("Electrocuted");
+        m_Rigidbody2D.velocity = new Vector2(0, 0);
+        m_Rigidbody2D.gravityScale = 0;
+        timeToChangeLevel = 60;
+    }
+
+    private void RestartLevel() {
+        isDying = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
     }
 }

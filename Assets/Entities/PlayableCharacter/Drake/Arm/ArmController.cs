@@ -3,18 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ArmController : MonoBehaviour {
+    [SerializeField] private int boostDuration = 30;
+    [SerializeField] private int boostMagnitude = 10;
     [SerializeField] private GameObject Bullet;
     [SerializeField] private Transform GunTip;
     [SerializeField] private GameObject Gust;
     [SerializeField] private Transform BoostTip;
+    [SerializeField] private Sprite ChargedSprite;
+    [SerializeField] private Sprite EmptySprite;
     private bool canAltFire = true;
     private CharacterController2D PlayerController;
+    private SpriteRenderer m_SpriteRenderer;
 
     void Awake() {
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
         PlayerController = transform.parent.gameObject.GetComponent<CharacterController2D>();
+        PlayerController.OnLandEvent.AddListener(RefreshAltFire);
     }
 
     void Update() {
+        if(CharacterController2D.isDying) gameObject.SetActive(false);
+        m_SpriteRenderer.sprite = canAltFire ? ChargedSprite : EmptySprite;
         if(ShouldFire()) Fire();
         if(ShouldAltFire()) AltFire();
     }
@@ -28,12 +37,12 @@ public class ArmController : MonoBehaviour {
     }
 
     private bool ShouldAltFire() {
-        return Input.GetButtonDown("Fire2");
+        return Input.GetButtonDown("Fire2") && canAltFire;
     }
 
     private void AltFire() {
         Vector2 boostDirection = (GunTip.transform.position - transform.position).normalized;
-        PlayerController.BoostTo(boostDirection, 30, 10);
+        PlayerController.BoostTo(boostDirection, boostDuration, boostMagnitude);
         Object.Instantiate(Gust, BoostTip.transform.position, BoostTip.transform.rotation);
         canAltFire = false;
     }

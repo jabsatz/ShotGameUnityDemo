@@ -11,6 +11,7 @@ public class CrosshairController : MonoBehaviour {
 	}
 
 	void Update () {
+		if(CharacterController2D.isDying) gameObject.SetActive(false);
 		Vector2 mousePos = GUICamera.ScreenToWorldPoint(Input.mousePosition);
 		transform.position = mousePos;
 		transform.Rotate(Vector3.back * Time.deltaTime * 45);

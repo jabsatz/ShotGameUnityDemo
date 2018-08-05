@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,10 @@ public class BulletController : MonoBehaviour {
     [SerializeField] private int damage = 10;
     [SerializeField] private int timeToChange = 10;
     [SerializeField] private Sprite changeSprite;
+    private string[] destroyingTags = new string[] {
+        "Platform",
+        "Enemy"
+    };
     private SpriteRenderer m_spriteRenderer;
 
     void Awake() {
@@ -29,19 +34,22 @@ public class BulletController : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D col) {
-        Debug.Log(col);
         if(col.gameObject.tag == "Enemy") {
             //Enemy hp calculation
         }
-        if(col.gameObject.tag != "Player") {
-            Object.Destroy(gameObject);
+        if(BulletShouldGetDestroyed(col.gameObject.tag)) {
+            UnityEngine.Object.Destroy(gameObject);
         }
+    }
+
+    private bool BulletShouldGetDestroyed(string collisionTag) {
+        return Array.Exists<string>(destroyingTags, tag => tag == collisionTag);
     }
 
     void DestroyIfOutOfView() {
         Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
         if(viewPos.x < -1 || viewPos.x > 2 || viewPos.y < -1 || viewPos.y > 2) {
-            Object.Destroy(gameObject);
+            UnityEngine.Object.Destroy(gameObject);
         }
     }
 }

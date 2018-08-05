@@ -11,6 +11,10 @@ public class PlayerMovement : MonoBehaviour {
     float horizontalMove = 0f;
 	bool jump = false;
 
+    void Start() {
+        transform.position = GameMaster.lastCheckpointPos;
+    }
+
     void Update() {
         horizontalMove = Input.GetAxisRaw("Horizontal");
 

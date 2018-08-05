@@ -34,6 +34,13 @@ TextureImporter:
     21300058: drake_29
     21300060: drake_30
     21300062: drake_31
+    21300064: drake_32
+    21300066: drake_33
+    21300068: drake_34
+    21300070: drake_35
+    21300072: drake_36
+    21300074: drake_37
+    21300076: drake_38
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -120,7 +127,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
+        y: 256
         width: 64
         height: 64
       alignment: 0
@@ -130,7 +137,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b29a09b26b2005498f5ef95549ecb16
+      spriteID: 077f56759ef0a0a4585f72e380e807bb
       vertices: []
       indices: 
       edges: []
@@ -140,7 +147,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 192
+        y: 256
         width: 64
         height: 64
       alignment: 0
@@ -150,7 +157,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34312cbdf5d8e0244aaf0f6dae32253d
+      spriteID: 79fd7fb372698ee459bf7725b649dc13
       vertices: []
       indices: 
       edges: []
@@ -160,7 +167,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 192
+        y: 256
         width: 64
         height: 64
       alignment: 0
@@ -170,7 +177,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dede35f962926234aaf3e1989cb3699c
+      spriteID: 79f19243ee5ecac40bdcd3e6244659c9
       vertices: []
       indices: 
       edges: []
@@ -180,7 +187,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 192
+        y: 256
         width: 64
         height: 64
       alignment: 0
@@ -190,7 +197,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e1c8e753cba5ab43b3853aae5017a24
+      spriteID: 30fc6ba25d2fa204c8255a84eb7f5a8a
       vertices: []
       indices: 
       edges: []
@@ -200,7 +207,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 192
+        y: 256
         width: 64
         height: 64
       alignment: 0
@@ -210,7 +217,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05d0dd5b3db9f594d9c5d4023197d287
+      spriteID: 0f6ce9b350f2bf243bb85925c81f52d1
       vertices: []
       indices: 
       edges: []
@@ -220,7 +227,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 320
-        y: 192
+        y: 256
         width: 64
         height: 64
       alignment: 0
@@ -230,7 +237,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0d4cd4cca627d94c900fdd2c83bf57e
+      spriteID: 49f377efac592194aacbba35de5214f9
       vertices: []
       indices: 
       edges: []
@@ -240,7 +247,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 192
+        y: 256
         width: 64
         height: 64
       alignment: 0
@@ -250,7 +257,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c192bf5180a10e4388cf2b9c8d5cd17
+      spriteID: 3427acc84a8d8af489b7f2b6cc54c383
       vertices: []
       indices: 
       edges: []
@@ -260,6 +267,26 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 448
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 806b6d7c16b905f45840c28948b0fd6b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drake_8
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 192
         width: 64
         height: 64
@@ -270,27 +297,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bc9cd1f40ad26d46bd4f5998c179bc9
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: drake_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f9b368f676743744ba6ffd1c7f1742c
+      spriteID: e04307280722ff144960530052e463ed
       vertices: []
       indices: 
       edges: []
@@ -300,7 +307,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 128
+        y: 192
         width: 64
         height: 64
       alignment: 0
@@ -310,7 +317,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 011291539e021fc40b99ecc249c1822a
+      spriteID: a13d918f7105e1f4dab53a569cd82a50
       vertices: []
       indices: 
       edges: []
@@ -320,7 +327,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 128
+        y: 192
         width: 64
         height: 64
       alignment: 0
@@ -330,7 +337,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7a74ee8efd91ed408783be8a0bfd62e
+      spriteID: 1031d42a59b0dea4298ddf5773fbc64e
       vertices: []
       indices: 
       edges: []
@@ -340,7 +347,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 128
+        y: 192
         width: 64
         height: 64
       alignment: 0
@@ -350,7 +357,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b625089c532e37f4f9e8534178667778
+      spriteID: 9a163d07217ac054cba01128e5303937
       vertices: []
       indices: 
       edges: []
@@ -360,7 +367,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 128
+        y: 192
         width: 64
         height: 64
       alignment: 0
@@ -370,7 +377,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96cf69315163d444e80ce013c13d854c
+      spriteID: 83d7d5cd634dfbd4a9fb4dc387671f61
       vertices: []
       indices: 
       edges: []
@@ -380,7 +387,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 320
-        y: 128
+        y: 192
         width: 64
         height: 64
       alignment: 0
@@ -390,7 +397,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39850833eba67af43b8fb88404fe7c17
+      spriteID: 8917b817d0e42c140a6ef3c97db280f4
       vertices: []
       indices: 
       edges: []
@@ -400,7 +407,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 128
+        y: 192
         width: 64
         height: 64
       alignment: 0
@@ -410,7 +417,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af7aa6899f23c764a87700edf8e676be
+      spriteID: 037a45faebb8fd14da85eaa44e6ccdde
       vertices: []
       indices: 
       edges: []
@@ -420,6 +427,26 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 448
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c0f3c229f2e5aa40955e9736b413e1d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drake_16
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 128
         width: 64
         height: 64
@@ -430,27 +457,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 472d3e2375f17924da635f79db14e5b5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: drake_16
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6a0f20f90d9b0e54fab0dd9d58871657
+      spriteID: f7f98e7eb80dfaa46867e1140c295d37
       vertices: []
       indices: 
       edges: []
@@ -460,6 +467,146 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47ffab59856930b46a48f393e1989950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drake_18
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8a31d1d538646546ab41b9766e2c106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drake_19
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df31993f490778442bd6acf4acf52162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drake_20
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d87a9b0df72f6b342b9c6e128009d7a4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drake_21
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e17dea5cf9b043408b0e9bd26f371d6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drake_22
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 922718e0d1b2785479f658cb5d4f289c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drake_23
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 815af69c449825c4797c7340d78bb553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drake_24
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 64
         width: 64
         height: 64
@@ -470,13 +617,33 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be4f5dc8cbb5bc24bbac36aa1e00d61d
+      spriteID: 048f6d9b92d47c04b8e17af4c14964f0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drake_18
+      name: drake_25
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2985d7e515725046ba65f39ff07d5dc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drake_26
       rect:
         serializedVersion: 2
         x: 128
@@ -490,13 +657,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30de53dae88ad7a48a02f3b050faf5b5
+      spriteID: f2d692861bfc68449ab97c7dba21d882
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drake_19
+      name: drake_27
       rect:
         serializedVersion: 2
         x: 192
@@ -510,13 +677,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d1501dc9de590a42af998ad5a68edbc
+      spriteID: 344612b7a1b634c4085a2cfc2ef1de32
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drake_20
+      name: drake_28
       rect:
         serializedVersion: 2
         x: 256
@@ -530,13 +697,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11c93e0897276834c88459e4294e9c21
+      spriteID: cbbedb38e86443f4bae640ccb51db7b2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drake_21
+      name: drake_29
       rect:
         serializedVersion: 2
         x: 320
@@ -550,13 +717,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 599b8f86c8473ba42a3934ade0e5f810
+      spriteID: 12830e3f07b2a5c4a95a2ded20ee30ca
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drake_22
+      name: drake_30
       rect:
         serializedVersion: 2
         x: 384
@@ -570,13 +737,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e343ab2a7c52c141a711120a860607a
+      spriteID: 3929c3ffa2199984d8ef12f4689de593
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drake_23
+      name: drake_31
       rect:
         serializedVersion: 2
         x: 448
@@ -590,13 +757,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfea4eb765484944ca9bf1814f3ebbd4
+      spriteID: 9f2891903cf671e4db9b4d7f3359894e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drake_24
+      name: drake_32
       rect:
         serializedVersion: 2
         x: 0
@@ -610,13 +777,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a370ac05df256640be807fde1a8d058
+      spriteID: eff396e20c96e814f9e12af557275e8d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drake_25
+      name: drake_33
       rect:
         serializedVersion: 2
         x: 64
@@ -630,13 +797,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18d305c221944e24ca578e3c39c61c55
+      spriteID: 309324f5a216a4943957c967e4294aa8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drake_26
+      name: drake_34
       rect:
         serializedVersion: 2
         x: 128
@@ -650,13 +817,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3fa730841f1994419bce30eaee64fb0
+      spriteID: a128041cf8dd88a44b446f03d7a02eec
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drake_27
+      name: drake_35
       rect:
         serializedVersion: 2
         x: 192
@@ -670,13 +837,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bb537e7daec3684e95e22e0b164c735
+      spriteID: 5514801127447fb4d8fbf88795877279
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drake_28
+      name: drake_36
       rect:
         serializedVersion: 2
         x: 256
@@ -690,13 +857,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c442bd410f35174cb5b49df963ce73c
+      spriteID: cfdd74ef6b0f2384290ad8d36c926e80
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drake_29
+      name: drake_37
       rect:
         serializedVersion: 2
         x: 320
@@ -710,13 +877,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23de6ecbe473aaf46a37624aa4b09d7f
+      spriteID: d9e1a02b05d7596488f6dca6c64d0bf4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: drake_30
+      name: drake_38
       rect:
         serializedVersion: 2
         x: 384
@@ -730,27 +897,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a9ad437c777c654688b2162ab962877
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: drake_31
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a6681b48f74bd240988f98033546ce2
+      spriteID: a556e715539d8e3478b83200320eb6cf
       vertices: []
       indices: 
       edges: []
