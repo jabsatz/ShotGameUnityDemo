@@ -8,6 +8,7 @@ TagManager:
   - PlayerBullet
   - Bumper
   - Hazard
+  - Enemy
   layers:
   - Default
   - TransparentFX
