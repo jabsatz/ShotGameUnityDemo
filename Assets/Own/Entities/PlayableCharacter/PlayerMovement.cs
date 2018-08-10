@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour {
     public float runSpeed = 120f;
 
     float horizontalMove = 0f;
+    bool stand = false;
 	bool jump = false;
     Animator animator;
 
@@ -18,7 +19,10 @@ public class PlayerMovement : MonoBehaviour {
     void Update() {
         if(CanMove()) {
             horizontalMove = Input.GetAxisRaw("Horizontal");
-
+            if(horizontalMove != 0) {
+                horizontalMove = horizontalMove > 0 ? 1 : -1;
+            }
+            stand = Input.GetAxisRaw("Ground") > 0.5f || Input.GetButton("Ground");
             if(Input.GetButtonDown("Jump")) {
                 jump = true;
             }
@@ -29,7 +33,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        controller.Move(horizontalMove * runSpeed * Time.fixedDeltaTime, false, jump);
+        controller.Move(horizontalMove * runSpeed * Time.fixedDeltaTime, false, jump, stand);
 		jump = false;
     }
 

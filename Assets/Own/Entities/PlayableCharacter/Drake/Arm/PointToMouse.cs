@@ -10,19 +10,20 @@ public class PointToMouse : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 armPosition = new Vector2(
-            transform.position.x,
-            transform.position.y
+        Vector2 armRotation = new Vector2(
+            -Input.GetAxisRaw("Horizontal"),
+            -Input.GetAxisRaw("Vertical")
         );
-        Vector2 armToTarget = armPosition - mousePosition;
-        float angle = Vector2.SignedAngle(Vector2.left, armToTarget);
 
-        m_SpriteRenderer.flipY = ShouldFlip(angle);
+        if(armRotation != Vector2.zero) {
+            float angle = Vector2.SignedAngle(Vector2.left, armRotation);
 
-        Quaternion quat = Quaternion.identity;
-        quat.eulerAngles = new Vector3(0, 0, angle);
-        transform.rotation = quat;
+            m_SpriteRenderer.flipY = ShouldFlip(angle);
+
+            Quaternion quat = Quaternion.identity;
+            quat.eulerAngles = new Vector3(0, 0, angle);
+            transform.rotation = quat;
+        }
     }
 
     private bool ShouldFlip(float angle) {

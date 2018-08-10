@@ -10,6 +10,7 @@ public class SimpleBlit : MonoBehaviour {
     public Color transitionColor = Color.black;
     public Texture2D transitionTexture;
     public float fade = 1;
+    private bool transitionActive = true;
 
     private void Update() {
         if(opening && cutoffPosition > 0) {
@@ -19,12 +20,14 @@ public class SimpleBlit : MonoBehaviour {
             cutoffPosition += 1f/transitionTime;
         }
         cutoffPosition = Mathf.Clamp(cutoffPosition, 0, 1);
-        if(cutoffPosition != 0 && cutoffPosition != 1) {
+        if(transitionActive) {
             TransitionMaterial.SetFloat("_Cutoff", EaseInOut(cutoffPosition));
             TransitionMaterial.SetTexture("_TransitionTex", transitionTexture);
             TransitionMaterial.SetColor("_Color", transitionColor);
             TransitionMaterial.SetFloat("_Fade", fade);
         }
+        transitionActive = cutoffPosition != 0 && cutoffPosition != 1;
+
     }
 
     private float EaseInOut(float position) {

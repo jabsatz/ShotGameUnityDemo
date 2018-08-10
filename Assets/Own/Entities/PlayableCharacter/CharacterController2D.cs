@@ -75,15 +75,23 @@ public class CharacterController2D : MonoBehaviour {
         HandleGrounding();
     }
 
-
-    public void Move(float move, bool crouch, bool jump) {
+    public void Move(float move, bool crouch, bool jump, bool locked) {
         if(!crouch && HasPlatformOverHead()) crouch = true;
 
         if(Boosting()) {
             Boost();
         }
 
-        if(CanMove()) {
+        if(locked) {
+            m_Rigidbody2D.velocity = Vector3.SmoothDamp(
+                m_Rigidbody2D.velocity,
+                new Vector2(0, m_Rigidbody2D.velocity.y),
+                ref m_Velocity,
+                m_MovementSmoothing
+            );
+        }
+
+        if(CanMove(locked)) {
             if(m_CrouchDisableCollider != null)
                 m_CrouchDisableCollider.enabled = crouch;
             if(crouch != m_wasCrouching) {
@@ -106,22 +114,20 @@ public class CharacterController2D : MonoBehaviour {
             );
 
         }
-        if(ShouldFlip()) Flip();
+        if(ShouldFlip(move)) Flip();
 
         if(ShouldJump(jump)) Jump();
 
         SetAnimatorParameters();
     }
 
-    private bool ShouldFlip() {
+    private bool ShouldFlip(float move) {
         if(isDying) return false;
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        return (mousePosition.x >= transform.position.x && !m_FacingRight) ||
-               (mousePosition.x < transform.position.x && m_FacingRight);
+        return move != 0 && m_FacingRight != move > 0;
     }
 
-    private bool CanMove() {
-        return !isDying && (m_Grounded || m_AirControl);
+    private bool CanMove(bool locked) {
+        return !locked && !isDying && (m_Grounded || m_AirControl);
     }
 
     private bool ShouldJump(bool jump) {
