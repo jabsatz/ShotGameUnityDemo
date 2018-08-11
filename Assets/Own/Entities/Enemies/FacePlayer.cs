@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FacePlayer : MonoBehaviour {
-    [SerializeField] private Transform player;
+    private Transform player;
+
+    void Awake() {
+        player = GameObject.FindWithTag("Player").transform;
+    }
 
     // Update is called once per frame
     void Update() {

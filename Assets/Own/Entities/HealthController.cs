@@ -8,9 +8,9 @@ public class HealthController : MonoBehaviour {
 	public Healthbar healthbar;
 
 	public void takeDamage(int damage) {
-		health -= damage;
 		if(healthbar) healthbar.SetHealth(health);
-		if(health <= 0) gameObject.SendMessage("Destroy");
-		gameObject.BroadcastMessage("DamageFlash");
+		if(health - damage <= 0 && health > 0) gameObject.SendMessage("Destroy");
+		health -= damage;
+		if(health > 0) gameObject.BroadcastMessage("DamageFlash");
 	}
 }

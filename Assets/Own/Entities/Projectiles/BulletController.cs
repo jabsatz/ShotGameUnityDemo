@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletController : MonoBehaviour {
-    [SerializeField] private bool enemyBullet = false;
-    [SerializeField] private float speed = 0.4f;
-    [SerializeField] private int damage = 10;
-    [SerializeField] private int timeToChange = 10;
-    [SerializeField] private Sprite changeSprite;
+    public bool enemyBullet = false;
+    public float speed = 0.4f;
+    public int damage = 10;
+    public int timeToChange = 10;
+    public Sprite changeSprite;
     private string[] destroyingTags = new string[2];
     private SpriteRenderer m_spriteRenderer;
 
@@ -48,7 +48,7 @@ public class BulletController : MonoBehaviour {
 
     void DestroyIfOutOfView() {
         Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
-        if(viewPos.x < -1 || viewPos.x > 2 || viewPos.y < -1 || viewPos.y > 2) {
+        if(viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1) {
             UnityEngine.Object.Destroy(gameObject);
         }
     }

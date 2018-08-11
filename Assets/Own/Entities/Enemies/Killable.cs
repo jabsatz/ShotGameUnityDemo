@@ -5,6 +5,7 @@ using UnityEngine;
 public class Killable : MonoBehaviour {
 
 	public void Destroy() {
-		GameObject.Destroy(gameObject);
+		gameObject.AddComponent<DestroyOnAnimationEnd>();
+		gameObject.GetComponent<Animator>().SetTrigger("Death");
 	}
 }

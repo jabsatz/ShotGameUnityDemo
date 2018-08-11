@@ -211,4 +211,8 @@ public class CharacterController2D : MonoBehaviour {
         m_Rigidbody2D.velocity = new Vector2(0, 0);
         m_Rigidbody2D.gravityScale = 0;
     }
+
+    public void Destroy() {
+        m_Animator.SetTrigger("Death");
+    }
 }

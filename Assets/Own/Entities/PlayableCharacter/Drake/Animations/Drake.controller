@@ -966,8 +966,8 @@ AnimatorState:
   m_Motion: {fileID: 7400000, guid: a7f4394a03b72d540a5a9ce7853cfc53, type: 2}
   m_Tag: Frozen
   m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
+  m_MirrorParameter: Grounded
+  m_CycleOffsetParameter: HSpeed
   m_TimeParameter: 
 --- !u!1107 &1107006060639863096
 AnimatorStateMachine:
