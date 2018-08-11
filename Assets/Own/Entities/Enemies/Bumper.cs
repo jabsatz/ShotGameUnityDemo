@@ -14,9 +14,8 @@ public class Bumper : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D col) {
 		if(col.gameObject.tag == "Player") {
 			Vector2 boostDirection = (col.gameObject.transform.position - transform.position).normalized;
-			col.gameObject.GetComponent<CharacterController2D>().BoostTo(boostDirection, duration, magnitude);
-            ArmController armController = col.gameObject.GetComponentInChildren<ArmController>();
-			if(armController) armController.RefreshAltFire();
+			col.gameObject.SendMessage("BoostTo", new object[3] { boostDirection, duration, (float) magnitude });
+			col.gameObject.BroadcastMessage("RefreshAltFire");
 			animator.SetTrigger("Bumped");
 		}
 	}

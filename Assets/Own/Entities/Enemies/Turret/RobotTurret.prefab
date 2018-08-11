@@ -25,6 +25,8 @@ GameObject:
   - component: {fileID: 50522960401576336}
   - component: {fileID: 61244927813171070}
   - component: {fileID: 114703727748833648}
+  - component: {fileID: 114412657561689334}
+  - component: {fileID: 114181598460179960}
   m_Layer: 0
   m_Name: RobotTurret
   m_TagString: Enemy
@@ -108,6 +110,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114181598460179960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1428328021340472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4bd07722888aee46821be883db406b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 5
+  magnitude: 100
+--- !u!114 &114412657561689334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1428328021340472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad4848d88de3e84b828c33e939b589e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  healthbar: {fileID: 0}
 --- !u!114 &114703727748833648
 MonoBehaviour:
   m_ObjectHideFlags: 1

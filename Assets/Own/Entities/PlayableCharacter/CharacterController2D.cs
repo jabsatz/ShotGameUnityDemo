@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
-using System.Timers;
-using UnityEngine.SceneManagement;
 
 public class CharacterController2D : MonoBehaviour {
     [SerializeField] private float m_JumpForce = 400f;
@@ -12,6 +10,7 @@ public class CharacterController2D : MonoBehaviour {
     [SerializeField] private Transform m_GroundCheck;
     [SerializeField] private Transform m_CeilingCheck;
     [SerializeField] private Collider2D m_CrouchDisableCollider;
+    [SerializeField] private Healthbar m_Healthbar;
 
     private Vector2 boostingDirection;
     private int boostingTimeLeft = 0;
@@ -27,8 +26,6 @@ public class CharacterController2D : MonoBehaviour {
     private GameObject m_Arm;
     private ArmController m_ArmController;
     public static bool active = true;
-    public static bool isDying = false;
-    private int timeToChangeLevel = 0;
 
     [Header("Events")]
     [Space]
@@ -62,12 +59,6 @@ public class CharacterController2D : MonoBehaviour {
 
 
     private void Update() {
-        if(isDying) {
-            timeToChangeLevel--;
-            if(timeToChangeLevel <= 0) {
-                RestartLevel();
-            }
-        }
         active = !m_Animator.GetCurrentAnimatorStateInfo(0).IsTag("Frozen");
     }
 
@@ -122,12 +113,11 @@ public class CharacterController2D : MonoBehaviour {
     }
 
     private bool ShouldFlip(float move) {
-        if(isDying) return false;
-        return move != 0 && m_FacingRight != move > 0;
+        return active && move != 0 && m_FacingRight != move > 0;
     }
 
     private bool CanMove(bool locked) {
-        return !locked && !isDying && (m_Grounded || m_AirControl);
+        return active && !locked && (m_Grounded || m_AirControl);
     }
 
     private bool ShouldJump(bool jump) {
@@ -198,7 +188,11 @@ public class CharacterController2D : MonoBehaviour {
         m_Rigidbody2D.gravityScale = initialGravity;
     }
 
-    public void BoostTo(Vector2 where, int duration, float magnitude) {
+    public void BoostTo(object[] args) {
+        BoostTo((Vector2) args[0], (int) args[1], (float) args[2]);
+    }
+
+    private void BoostTo(Vector2 where, int duration, float magnitude) {
         m_AirControl = false;
         boostingDirection = where*magnitude;
         boostingTimeLeft = duration;
@@ -207,20 +201,14 @@ public class CharacterController2D : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D col) {
         if(col.gameObject.tag == "Hazard") {
-            Die();
+            Electrocute();
         }
     }
 
-    private void Die() {
-        isDying = true;
+    private void Electrocute() {
+        m_Healthbar.SetHealth(0);
         m_Animator.SetTrigger("Electrocuted");
         m_Rigidbody2D.velocity = new Vector2(0, 0);
         m_Rigidbody2D.gravityScale = 0;
-        timeToChangeLevel = 60;
-    }
-
-    private void RestartLevel() {
-        isDying = false;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
     }
 }

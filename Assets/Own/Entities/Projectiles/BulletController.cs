@@ -35,7 +35,7 @@ public class BulletController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col) {
         if(col.gameObject.tag == (enemyBullet ? "Player" : "Enemy")) {
-            //Target hp calculation
+            col.gameObject.SendMessage("takeDamage", damage);
         }
         if(BulletShouldGetDestroyed(col.gameObject.tag)) {
             UnityEngine.Object.Destroy(gameObject);
