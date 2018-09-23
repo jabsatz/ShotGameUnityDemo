@@ -34,6 +34,9 @@ public class BulletController : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D col) {
+        if(col.isTrigger) {
+            return;
+        }
         if(col.gameObject.tag == (enemyBullet ? "Player" : "Enemy")) {
             col.gameObject.SendMessage("takeDamage", damage);
         }

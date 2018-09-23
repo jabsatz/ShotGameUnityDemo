@@ -56,6 +56,8 @@ GameObject:
   - component: {fileID: 58318833307843234}
   - component: {fileID: 114399418258764838}
   - component: {fileID: 114684819937627974}
+  - component: {fileID: 114186598513659036}
+  - component: {fileID: 114279289520452480}
   m_Layer: 0
   m_Name: Drake
   m_TagString: Player
@@ -74,6 +76,7 @@ GameObject:
   - component: {fileID: 212961112413810598}
   - component: {fileID: 114693084675007988}
   - component: {fileID: 114409029213399724}
+  - component: {fileID: 114987335536057834}
   m_Layer: 0
   m_Name: Arm
   m_TagString: Untagged
@@ -118,7 +121,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1443132723246150}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38.5, y: 52.8, z: 0}
+  m_LocalPosition: {x: -3.8, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4793201940421778}
@@ -263,7 +266,7 @@ Animator:
   m_GameObject: {fileID: 1443132723246150}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1c45ab1dae29ae14f863100e7ee23b67, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1621c179a079d4e46a1f035b7eb84139, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -272,6 +275,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114186598513659036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1443132723246150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3edc37ce4e62449b0324c555cf775e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashCycles: 5
+--- !u!114 &114279289520452480
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1443132723246150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad4848d88de3e84b828c33e939b589e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  healthbar: {fileID: 0}
 --- !u!114 &114399418258764838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -293,9 +321,21 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 4595541849718890}
   m_CeilingCheck: {fileID: 4793201940421778}
   m_CrouchDisableCollider: {fileID: 0}
+  m_Healthbar: {fileID: 0}
   OnLandEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114409029213399724}
+        m_MethodName: RefreshAltFire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnCrouchEvent:
@@ -346,6 +386,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e4f52b8c428707489d560bd94303bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114987335536057834
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1628077294894828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3edc37ce4e62449b0324c555cf775e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashCycles: 5
 --- !u!212 &212105524420499940
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -361,7 +413,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 52f569f52be6f94458d88e3fa93f9c3d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -407,7 +459,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 52f569f52be6f94458d88e3fa93f9c3d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

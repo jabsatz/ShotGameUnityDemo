@@ -138,7 +138,7 @@ public class CharacterController2D : MonoBehaviour {
         );
         m_Animator.SetBool("Grounded", m_Grounded);
         m_Animator.SetFloat("VSpeed", m_Rigidbody2D.velocity.y);
-        m_Animator.SetFloat("HSpeed", m_Rigidbody2D.velocity.x);
+        m_Animator.SetFloat("HSpeed", Mathf.Abs(m_Rigidbody2D.velocity.x));
     }
 
     private bool HasPlatformOverHead() {
